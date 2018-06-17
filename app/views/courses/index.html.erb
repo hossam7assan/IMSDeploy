@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>Courses</h1>
+<br/>
+<br/>
+<br/>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+      <th class="col-6">Course Name</th>
+      <th class="col-6">Action </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each_with_index do |course, index| %>
+      <tr class="d-flex">
+      <th scope="row" class="col-6"><%= @coursenames[index] %></th>
+        <td class="col-6"><%= link_to 'Show', course_path(@courseids[index]) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

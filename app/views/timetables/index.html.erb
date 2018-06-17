@@ -1,0 +1,30 @@
+<html>
+<head>
+<p id="notice"><%= notice %></p>
+<h1>Timetable</h1>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr class="d-flex">
+      <th class="col-6">Created at</th>
+      <th class="col-6">Link of Timetable</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr class="d-flex">
+  <% if @timetable=="empty" %>
+  <% else %>
+        <th scope="row" class="col-6"><%= @timetable.created_at %></th>
+        <td class="col-6"><%= link_to "Download Timetable", @timetable.timetable_link_url %></td>
+      <% end %>
+        </tr>
+      </tbody>
+      </table>
+      </div>
+      </body>
+      </html>
+

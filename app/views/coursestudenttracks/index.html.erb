@@ -1,0 +1,45 @@
+<html>
+<head>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+  <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+<h1>Students grades</h1>
+<br/>
+<br/>
+<br/>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col">Students/Courses</th>
+    <% @coursenames.each_with_index do |course, index| %>
+        <th scope="col"><%= @coursenames[index] %></th>
+    <% end %>
+    <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studentnames.each_with_index do |student, index| %>
+      <tr>
+        <th scope="row"><%= @studentnames[index] %></th>
+          <% @coursenames.each_with_index do |course, index1| %>
+            <td><%= @gradesforeachstudent[index][index1] %></td> 
+          <% end %>
+        <td><button type="button" class="btn btn-info" onclick=" location.href = '<%= edit_coursestudenttrack_path(@studentids[index]) %>' ">Edit</button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= column_chart @arrayfordrawingchart %> 
+
+</body>
+</html>

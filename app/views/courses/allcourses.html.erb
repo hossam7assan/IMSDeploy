@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<h1>List all courses and instructors</h1>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr class="d-flex">
+      <th class="col-4">Course Name</th>
+      <th class="col-4">Instructor Name</th>
+      <th class="col-4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @coursenames.each_with_index do |course_name, index| %>
+    <tr class="d-flex">
+      <th class="col-4" scope="row"><%= @coursenames[index] %></th>
+      <td class="col-4"><%= @instructornames[index] %></td>
+      <td class="col-4"><button type="button" class="btn btn-info" onclick=" location.href = '<%= edit_course_path(@courseobjects[index]) %>' ">Edit</button></td>  </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

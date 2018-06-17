@@ -1,0 +1,32 @@
+<%= form_for @post , html: { multipart: true } do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%= f.hidden_field :student_id, value: current_student.id %>
+</div>
+
+<div class="form-group">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+
+<div class="field">
+  <%= f.label :tag_list, "Tags (separated by commas)" %>
+<%= f.text_field :tag_list %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  
+<% end %>

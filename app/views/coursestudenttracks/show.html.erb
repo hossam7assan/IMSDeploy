@@ -1,0 +1,29 @@
+<html>
+<head>
+<p id="notice"><%= notice %></p>
+<h1>Grades</h1>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr class="d-flex">
+      <th class="col-6">Course Name</th>
+      <th class="col-6">Grade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coursestudenttracks.each_with_index do |coursestudenttrack,index| %>
+      <tr class="d-flex">
+      <th scope="row" class="col-6"><%= @coursename[index] %></th>
+      <td lass="col-6"><%= @coursestudenttracks[index]['grade'] %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+    </div>
+    </body>
+    </html>
+

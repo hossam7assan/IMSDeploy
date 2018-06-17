@@ -1,0 +1,84 @@
+
+<h1>Upload Material</h1>
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<%= form_with(model: coursestafftrack, local: true) do |form| %>
+  <% if coursestafftrack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coursestafftrack.errors.count, "error") %> prohibited this coursestafftrack from being saved:</h2>
+
+      <ul>
+      <% coursestafftrack.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+  <label >Select the Course Name</label>
+  <br/>
+  <select name="course_id"  class="form-control form-control-lg"> 
+  <% @arrayofcoursenames.each_with_index do |course, index| %>
+    <<% if @coursestafftrack.course_id == @arrayofcourseids[index] %>
+    <%= content_tag(:option, @arrayofcoursenames[index], value: @arrayofcourseids[index], selected: true) %>
+    <% else %>
+    <%= content_tag(:option, @arrayofcoursenames[index], value: @arrayofcourseids[index]) %>
+    <% end %>
+  <% end %>
+  </select>
+  </div>
+  <br/>
+  <br/>
+
+  <div class="field">
+  <%= form.hidden_field :admin_user_id, :value => current_admin_user.id %>
+</div>
+<div class="field">
+  <%= form.hidden_field :track_id, :value => session[:track] %>
+</div>
+
+<div  class="form-group">
+<label >Enter the Name of the Material</label>  
+<br/>
+  <input type='text' class='form-control form-control-lg input-lg' placeholder='Example Lecture1' required=true name='material_name'>
+  </div>
+  <br/>
+  <br/>
+
+  <div  class="form-group">
+<label >Select the Material Type</label>  
+<br/>
+<select name="material_type"  class="form-control form-control-lg"> 
+    <%= content_tag(:option, 'Lecture', value: 'Lecture', selected: true) %>
+    <%= content_tag(:option, 'Other Documnets', value: 'Other Documnets') %>
+  </select>
+</div>
+<br/>
+<br/>
+
+<div  class="form-group">
+<label >Upload the Material File</label>  
+<br/> 
+  <% if @coursestafftrack.material.blank? %>
+<br/>
+<%= form.file_field :material, required: true  %>
+<% else %>
+Old file uploaded if you want to change it submit a new one
+<br/> 
+<a href='<%= @coursestafftrack.material %>'><%= @coursestafftrack.material %></a>
+<br/>
+<%= form.file_field :material, value: @coursestafftrack.material  %>
+<% end %> 
+</div>
+<br/>
+<br/>
+
+<div class="actions">
+<button type="submit" class="btn btn-primary btn-block">Upload Material</button>
+</div>
+<% end %>
+</div>
+

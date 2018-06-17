@@ -1,0 +1,36 @@
+<html>
+<head>
+<p id="notice"><%= notice %></p>
+<h1>Assignments</h1>
+<br/>
+<br/>
+<br/>
+<div class="container-fluid">
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr class="d-flex">
+      <th class="col-2">Name</th>
+      <th class="col-3">Deadline</th>
+      <th class="col-3">Download Assignment</th>
+      <th class="col-2">Course</th>
+      <th class="col-2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @assignames.each_with_index do |assignment, index| %>
+      <tr class="d-flex">
+        <th scope="row" class="col-2"><%= @assignames[index] %></th>
+        <td class="col-3"><%= @assigdeadlines[index] %></td>
+        <td class="col-3"><a type="button" class="btn btn-success" onclick="location.href = '<%= @assignmentlink[index] %>' "> Download </a></td>
+        <td class="col-2"><%= @arrayofcoursenames[index] %></td>
+        <td class="col-2"><a type="button" class="btn btn-info" onclick="location.href = '<%= edit_assignment_path(@assignmentobject[index]) %>' ">Edit</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
+

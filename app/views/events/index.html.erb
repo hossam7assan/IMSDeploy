@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

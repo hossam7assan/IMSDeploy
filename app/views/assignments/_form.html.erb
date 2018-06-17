@@ -1,0 +1,79 @@
+
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<%= form_with(model: assignment, local: true) do |form| %>
+  <% if @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.hidden_field :admin_user_id, :value => current_admin_user.id %>
+</div>
+<div class="field">
+  <%= form.hidden_field :track_id, :value => session[:track] %>
+</div>
+
+<div  class="form-group">
+<label >Enter the Name of the Assignment</label>  
+<br/>
+<% if @assignment.name.blank? %>
+  <input type='text' class='form-control form-control-lg input-lg' placeholder='Example Lab1' required=true name='name'/>
+  <% else %>
+  <input type='text' class='form-control form-control-lg input-lg' value='<%= @assignment.name %>' name='name' />
+  <% end %>
+  </div>
+  <br/>
+  <br/>
+  <label >Enter the Deadline of the Assignment</label>  
+  <br/>
+  <div  class="form-group">
+  <%= form.datetime_select :deadline %>
+  </div>
+  <br/>
+  <br/>    
+<div class="form-group">
+<label >Select the Course Name</label>
+<br/>
+<select name="course_id"  class="form-control form-control-lg"> 
+<% @arrayofcoursenames.each_with_index do |course, index| %>
+  <% if @assignment.course_id == @arrayofcourseids[index] %>
+    <%= content_tag(:option, @arrayofcoursenames[index], value: @arrayofcourseids[index], selected: true) %>
+    <% else %>
+    <%= content_tag(:option, @arrayofcoursenames[index], value: @arrayofcourseids[index]) %>
+    <% end %>
+<% end %>
+</select>
+</div>
+<br/>
+<br/>
+<div  class="form-group">
+<label >Upload the Assignment File</label>  
+<br/>
+<% if @assignment.assignmentfile.blank? %>
+<%= form.file_field :assignmentfile, required: true  %>
+<% else %>
+Old file uploaded if you want to change it submit a new one
+<br/> 
+<a href="<%= @assignment.assignmentfile %>"><%= @assignment.assignmentfile %></a>
+<br/>
+<br/>
+<%= form.file_field :assignmentfile, value: @assignment.assignmentfile  %>
+<% end %>
+</div>
+<br/>
+<br/>
+<div class="actions">
+<button type="submit" class="btn btn-primary btn-block">Upload Assignment</button>
+</div>
+<% end %>
+</div>

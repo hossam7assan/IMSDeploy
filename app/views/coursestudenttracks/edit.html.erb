@@ -1,0 +1,21 @@
+<h1>Edit Student Grade</h1>
+
+<form accept-charset="UTF-8" action="update" method="post">
+<input name="_method" type="hidden" value="put" />
+<input name="student" value="<%= @student.id %>" type="hidden" />
+<% @coursenames.each_with_index do |course, index| %>
+    <% if @gradesarray[index]=="empty" %>
+    <input name=grade[<%= index %>] type=hidden value="empty" />
+    <% else %>
+    <div class="field">
+    <%= @coursenames[index] %>   
+    <br/>
+    <input name=grade[<%= index %>] type=number value="<%= @gradesarray[index] %>" />
+    </div>
+    <% end %>
+  <% end %>
+<input type=submit value=update />
+</form>
+
+
+

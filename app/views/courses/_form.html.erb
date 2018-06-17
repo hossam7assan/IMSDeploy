@@ -1,0 +1,48 @@
+
+<h1>Adding New Course</h1>
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<%= form_with(model: course, local: true) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div  class="form-group">
+  <label >Enter the Name of the Course</label>  
+  <br/>
+    <input type="text" class="form-control form-control-lg input-lg" placeholder="Enter name of the course" required=true name="name">
+    </div>
+    <br/>
+    <br/>
+
+  <div  class="form-group">
+  <label >Select the Instructor Name</label>
+  <br/>
+  <select name="admin_user_id"  class="form-control select form-control-lg"> 
+  <% @arrayofinstructornames.each_with_index do |instructor, index| %>
+    <% if @arrayofinstructorids[index] == @instructorid %>
+      <%= content_tag(:option, @arrayofinstructornames[index], value: @arrayofinstructorids[index], selected: true) %>
+      <% else %>
+      <%= content_tag(:option, @arrayofinstructornames[index], value: @arrayofinstructorids[index]) %>
+      <% end %>
+  <% end %>
+  </select>
+  </div>
+  <br/>
+  <br/>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary btn-block">Add Course</button>
+  </div>
+<% end %>
+</div>

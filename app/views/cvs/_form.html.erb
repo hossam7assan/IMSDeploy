@@ -1,0 +1,35 @@
+
+<h1>Upload your Cv</h1>
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<%= form_with(model: cv, local: true) do |form| %>
+  <% if cv.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cv.errors.count, "error") %> prohibited this cv from being saved:</h2>
+
+      <ul>
+      <% cv.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div  class="form-group">
+  <label >Upload the CV file</label>  
+  <br/>
+    <%= form.file_field :path, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :student_id, value: current_student.id %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary btn-block">Upload Cv</button>
+  </div>
+<% end %>
+</div>
+

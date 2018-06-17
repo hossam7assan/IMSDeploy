@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<h1>Uploaded Materials</h1>
+<br/>
+<br/>
+<br/>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+    <th class="col-2">Document Name</th>
+      <th class="col-2">Document Type</th>
+      <th class="col-2">Download Document</th>
+      <th class="col-2">Course Name</th>
+      <th class="col-4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @lecture_names.each_with_index do |lecture_name, index| %>
+    <tr class="d-flex">
+    <th scope="row" class="col-2"><%= @lecture_names[index] %></th>
+      <td class="col-2"><%= @lecture_types[index] %></td>
+      <td class="col-2"><%= link_to "Download", @lecture_links[index] %></td>
+      <td class="col-2"><%= @arrayofcoursenames[index] %></td>
+      <td class="col-2"><button type="button" class="btn btn-info" onclick=" location.href = '<%= edit_assignment_path(@lectureobject[index]) %>' ">Edit</button></td>
+      <td class="col-2"><%= link_to 'Destroy', @lectureobject[index], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

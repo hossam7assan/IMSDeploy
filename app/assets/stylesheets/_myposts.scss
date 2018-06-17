@@ -1,0 +1,50 @@
+.my-wrapper {
+    padding-top: 100px;
+    .my-inputs {
+        background-color: #fff;
+        padding: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+        .publish-post {
+            border-radius: 0;
+            border: none;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #CACACA;
+        }
+        input {
+            border-radius: 0;
+            border: 1px solid #5E8A93;
+            width: 100%;
+        }
+        .btn-div {
+            width: 100%;
+            text-align: right;
+            a {
+                border-radius: 0;
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+    .my-post {
+        background-color: #fff;
+        padding: 12px;
+        .post-info {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #CACACA;
+            h1 {
+                font-size: 18px;
+                color: #606060;
+            }
+        }
+        p { 
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        .post-likes {
+            a{
+                margin-left: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+
+<h1>Choose Track</h1>
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<form accept-charset="UTF-8" action="assignments/1/beforenew" method="post"> 
+<select name="track_id" class="form-control select form-control-lg">
+  <% @arrayoftracks.each_with_index do |instructor, index| %>
+      <option value="<%= @arrayoftracks[index] %>"><%= @arrayoftracksnames[index] %></option>
+      <% end %>
+  </select>
+<br/>
+<br/>
+<div class="actions">
+<button type="submit" class="btn btn-primary btn-block">Choose Track</button>
+</div>
+</form>
+</div>
+

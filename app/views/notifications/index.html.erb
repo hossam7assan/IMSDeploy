@@ -1,0 +1,25 @@
+<div class="notification">
+<% @notifications.each do |notification| %>
+      <span><%= notification.body %></span>
+  <% end %>
+
+
+</div>
+    <script>
+    $.get('/current_user', function(id){
+        console.log(id)
+        pusher = new Pusher('ca9e35c50a6cc67c009f', {
+        cluster: 'eu',
+        encrypted: true
+        })
+        if(id){
+                var notificationsChannel = pusher.subscribe('notifications-'+ id);
+                notificationsChannel.bind('new_notification', function(notification){
+                console.log(notification)
+                    var notif = notification.body;
+                    $('div.notification').append("<span>"+ notif+"</span>");
+        
+            });
+        }
+    });
+    </script>

@@ -1,0 +1,2 @@
+class Staffcourse < ApplicationRecord
+end

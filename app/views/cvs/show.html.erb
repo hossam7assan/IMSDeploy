@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <td><a href='<%=  @cv.path %>'><%= "cv of "+@cv.student.name  %></a></td>   
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @cv.student.name %>
+</p>
+
+   <% @adminarray.each_with_index do |cv_comment, index| %>
+   <p>
+    <% @admin_name = AdminUser.where(id: @adminarray[index]).take %>
+    <%= @admin_name.name  %> 
+    <%= "::" %>
+    <%= @cvarray[index] %> 
+    </p>
+  <% end %>
+
+
+
+<%= link_to 'Edit', edit_cv_path(@cv) %> |
+<%= link_to 'Back', cvs_path %>

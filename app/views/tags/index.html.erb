@@ -1,0 +1,12 @@
+<h1>Tags</h1>
+<div class="tag-lists">
+    <% @tags.each do |tag| %>
+
+        <div><%= tag.name %></div>
+
+        <% @posts.each do |post| %>
+            <div><%= post.title %></div>
+        <% end %>
+
+    <% end %>
+</div>

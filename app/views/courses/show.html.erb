@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+<h1><%= @course.name %></h1>
+<br/>
+<br/>
+<br/>
+
+
+<h4> Course Materials </h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+      <th class="col-4">Document Name</th>
+      <th class="col-4">Document Type</th>
+      <th class="col-4">Document file</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materials_material.each_with_index do |onematerial,index| %>
+      <tr class="d-flex">
+      <th scope="row" class="col-4"><%= @materials_material_name[index] %></th>
+      <td class="col-4"><%= @materials_material_type[index]  %></td>
+      <td class="col-4"><%= link_to "Download", @materials_material[index] %></td>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<br/>
+<h4>Course Assignments </h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+  <th class="col-3">Assignment Name</th>
+  <th class="col-3">Assignment Deadline</th>
+  <th class="col-3">Assignment file</th>
+  <th class="col-3">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courseassignments_deadline.each_with_index do |onecourseassignment,index| %>
+      <tr class="d-flex">
+      <th scope="row" class="col-3"><%= @courseassignments_name[index] %></th>
+      <td class="col-3"><%= @courseassignments_deadline[index]  %></td>
+      <% if @courseassignments_assignmentfile[index].empty? %>
+      <td class="col-3"> </td>
+      <% else %>
+      <td class="col-3"><%= link_to "Download",  @courseassignments_assignmentfile[index] %></td>
+      <% end %>
+        <td class="col-3"><%= link_to upload_course_path(@courseassignments_id[index]), method: :put do %>Upload<% end %></td>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<br/>
+<h4>Your Uploaded Assignments </h4>
+<table class="table table-striped">
+  <thead class="thead-dark">
+  <tr class="d-flex">
+  <th class="col-3">Your Answer (file)</th>
+  <th class="col-3">Your Answer (URL)</th>
+  <th class="col-3">Delivery Time</th>
+  <th class="col-3">Instructor Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assignments_id.each_with_index do |oneassignment,index| %>
+      <tr class="d-flex">
+      <% if @assignmentfile[index].empty? %>
+      <th scope="row" class="col-3"> </th>
+      <% else %>
+      <th scope="row" class="col-3"><%= link_to "Download", @assignmentfile[index] %></th>
+      <% end %>
+      <td class="col-3"><a href='<%= @assignments_delivered[index] %>'><%= @assignments_delivered[index] %></a></td>
+        <td class="col-3"><%= @assignments_createdat[index]  %></td>
+        <td class="col-3"><%= @assignments_review[index]  %></td>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>
+
+
+

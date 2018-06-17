@@ -1,0 +1,54 @@
+<html>
+<body class="container">
+<h1>Upload The Assignment Answer</h1>
+<br/>
+<br/>
+<br/>
+<div class="container center_div">
+<%= form_with(model: assignmentstaffstudent, local: true) do |form| %>
+  <% if assignmentstaffstudent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(assignmentstaffstudent.errors.count, "error") %> prohibited this assignmentstaffstudent from being saved:</h2>
+
+      <ul>
+      <% assignmentstaffstudent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+  <%= form.hidden_field :student_id, :value => @studentid %>
+  </div>
+  <div class="field">
+  <%= form.hidden_field :admin_user_id, :value => @staffid %>
+  </div>
+  <div class="field">
+  <%= form.hidden_field :assignment_id, :value => @assignmentid %>
+  </div>
+  <div class="field">
+  <%= form.hidden_field :course_id, :value => @courseid %>
+  </div>
+
+  <div  class="form-group">
+  <label >Upload the Assignment Answer (File)</label>  
+  <br/>
+  <%= form.file_field :file %>  
+  </div>
+  <br/>
+  <br/>
+  <div  class="form-group">
+  <label >Enter the Name of the Assignment</label>  
+  <br/>
+  <input type='text' class='form-control form-control-lg input-lg' placeholder='https://www.github.com/example' name='derlivered_assignment'>
+  </div>
+  <br/>
+  <br/>
+  <div class="actions">
+  <button type="submit" class="btn btn-primary btn-block">Upload Assignment Answer</button>
+  </div>
+  <% end %>
+  </div>
+  </body>
+  </html>
