@@ -24,7 +24,7 @@ gem 'figaro'
 
 gem 'acts-as-taggable-on', :git => 'https://github.com/Fodoj/acts-as-taggable-on', :branch => 'rails-5.2'
 gem 'brakeman', '~> 4.3'
-gem "recaptcha", require: "recaptcha/rails"
+# gem "recaptcha", require: "recaptcha/rails"
 
 gem 'rails', '~> 5.2.0'
 gem 'whenever', require: false  #Gem for crone Jobs

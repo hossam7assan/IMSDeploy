@@ -69,8 +69,8 @@ config.action_mailer.smtp_settings = {
    enable_starttls_auto: true  
 }
 
-RECAPTCHA_PUBLIC_KEY= '6Lc6Pl0UAAAAAPVRMtpW69ib8lePeqinK4vNqlV9'
-RECAPTCHA_PRIVATE_KEY= '6Lc6Pl0UAAAAAErNOLMqMj3-mb8K3zPgiK3PrfYX'
+# RECAPTCHA_PUBLIC_KEY= '6Lc6Pl0UAAAAAPVRMtpW69ib8lePeqinK4vNqlV9'
+# RECAPTCHA_PRIVATE_KEY= '6Lc6Pl0UAAAAAErNOLMqMj3-mb8K3zPgiK3PrfYX'
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

@@ -10,8 +10,7 @@
     <%= f.input :password, required: false %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
-<%= flash[:recaptcha_error] %>
-<div class="g-recaptcha" data-sitekey="6Lc6Pl0UAAAAAPVRMtpW69ib8lePeqinK4vNqlV9"></div>
+
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
