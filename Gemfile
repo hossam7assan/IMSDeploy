@@ -21,19 +21,11 @@ gem 'jquery-rails'
 
 gem 'pusher'
 gem 'figaro'
-# gem 'composite_primary_keys', '= 11.0.0'
-# gem 'composite_primary_keys', {
-#   :git => 'git://github.com/composite-primary-keys/composite_primary_keys.git',
-#   :branch => 'ar_4.1.x'
-# }
 
-#gem 'paperclip-googledrive'
-#gem 'oauth2'
 gem 'acts-as-taggable-on', :git => 'https://github.com/Fodoj/acts-as-taggable-on', :branch => 'rails-5.2'
 gem 'brakeman', '~> 4.3'
 gem "recaptcha", require: "recaptcha/rails"
-# gem 'google_drive'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '~> 5.2.0'
 gem 'whenever', require: false  #Gem for crone Jobs
 # Use postgresql as the database for Active Record
